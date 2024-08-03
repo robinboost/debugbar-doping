@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6886bd1b-dc29-494c-aab1-85bf9e8c96e7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Http/Controllers/DebugbarDopingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Http/Controllers/DebugbarDopingController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -229,7 +227,7 @@
       <workItem from="1722703249945" duration="89000" />
       <workItem from="1722703343686" duration="7000" />
       <workItem from="1722703419167" duration="81000" />
-      <workItem from="1722703500894" duration="4837000" />
+      <workItem from="1722703500894" duration="5167000" />
     </task>
     <servers />
   </component>
