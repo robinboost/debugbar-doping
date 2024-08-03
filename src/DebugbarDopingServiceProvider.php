@@ -24,8 +24,18 @@ class DebugbarDopingServiceProvider extends ServiceProvider
 
         $router = $this->app['router'];
 
-        $this->app->make(\Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class)
-            ->except(['/api/_debugbar/check', '/api/_debugbar/check/tag']);
+        $middleware = $this->app->make(CheckForMaintenanceMode::class);
+
+        if(method_exists($middleware, 'except')) {
+            $middleware->except(['/api/_debugbar/check', '/api/_debugbar/check/tag']);
+        } else if (method_exists($middleware, 'preventRequestsDuringMaintenance')) {
+            $middleware->preventRequestsDuringMaintenance(except: [
+                "v1/test/uri",
+            ]);
+        } else {
+            $kernel->prependMiddlewareToGroup('api', CustomCheckForMaintenanceMode::class);
+        }
+
 
 
         $this->commands([
