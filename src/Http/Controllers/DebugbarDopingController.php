@@ -42,7 +42,7 @@ class DebugbarDopingController extends Controller
         if (!$request->input('method')) {
             return response()->json(['error' => 'Provide method'], 401);
         }
-        $response = Http::post(config('api.db-api-url') . '/api/_debugbar/check', [
+        $response = Http::post(str_replace('v1/','',config('api.db-api-url')) . '/_debugbar/check', [
             'token' => md5(config('debuggbar.secret_token')),
             'method' => $request->get('method','list'),
             'params' => $request->get('params', [])
