@@ -42,6 +42,6 @@ class DebugbarDopingServiceProvider extends ServiceProvider
     public function register()
     {
         // Merge configuration
-        $this->mergeConfigFrom(__DIR__ . '/../config/debuggbar.php', 'campaigns');
+        $this->mergeConfigFrom(__DIR__ . '/../config/debuggbar.php', 'debuggbar');
     }
 }
