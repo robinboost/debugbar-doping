@@ -1,0 +1,43 @@
+{
+    "name": "robinboost/debugbar-doping",
+    "description": "Using this package you can add custom data to Laravel Debugbar.",
+    "type": "library",
+    "homepage": "https://github.com/robinboost/debugbar-doping",
+    "authors": [
+        {
+            "name": "Robinboost",
+            "email": "176695937+robinboost@users.noreply.github.com",
+            "role": "Developer"
+        }
+    ],
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Robinboost\\DebugbarDoping\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Robinboost\\DebugbarDoping\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit tests",
+        "test-coverage": "vendor/bin/phpunit --coverage-html=coverage tests"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "DebugbarDopingServiceProvider"
+            ]
+        }
+    },
+    "require": {
+        "php": "^8.2",
+        "laravel/framework": "^10.0 || ^11.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.0",
+        "orchestra/testbench": "^8.0"
+    }
+}
