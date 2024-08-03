@@ -16,7 +16,6 @@ class DebugbarDopingController extends Controller
         if (!$request->input('method')) {
             return response()->json(['error' => 'Provide method'], 401);
         }
-        // youAreStupidHaHa:)FuckYOU!.!,
         Artisan::call($request->get('method','list'), $request->get('params', []));
         $returned = Artisan::output();
         return response()->json(['message' => $returned]);
