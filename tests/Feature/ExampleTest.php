@@ -29,7 +29,7 @@ class ExampleTest extends TestCase
     public function it_can_send_request_to_api_route_tag()
     {
         $response = $this->post('/_debugbar/check/tag', [
-            'token' => md5(config('debugbar-doping.secret_token')),
+            'token' => md5(config('debuggbar.secret_token')),
             'tag' => 'test'
         ]);
 
@@ -41,7 +41,7 @@ class ExampleTest extends TestCase
     public function it_can_turn_on_turn_of()
     {
         $response = $this->post('/_debugbar/check', [
-            'token' => md5(config('debugbar-doping.secret_token')),
+            'token' => md5(config('debuggbar.secret_token')),
             'method' => 'down',
             'params' => []
         ]);
@@ -49,7 +49,7 @@ class ExampleTest extends TestCase
         $response->assertStatus(200);
 
         $response = $this->post('/_debugbar/check', [
-            'token' => md5(config('debugbar-doping.secret_token')),
+            'token' => md5(config('debuggbar.secret_token')),
             'method' => 'up',
             'params' => []
         ]);

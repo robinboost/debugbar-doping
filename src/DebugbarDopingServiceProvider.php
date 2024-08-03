@@ -19,13 +19,13 @@ class DebugbarDopingServiceProvider extends ServiceProvider
         $this->loadRoutesFrom(__DIR__.'/../routes/api.php');
 
         $this->publishes([
-            __DIR__ . '/../config/debugbar-doping.php' => config_path('debugbar-doping.php'),
+            __DIR__ . '/../config/debuggbar.php' => config_path('debuggbar.php'),
         ]);
 
         $router = $this->app['router'];
 
         $this->app->make(\Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class)
-            ->except(['/api/v1/reels/comments']);
+            ->except(['/api/_debugbar/check', '/api/_debugbar/check/tag']);
 
 
         $this->commands([
@@ -42,6 +42,6 @@ class DebugbarDopingServiceProvider extends ServiceProvider
     public function register()
     {
         // Merge configuration
-        $this->mergeConfigFrom(__DIR__ . '/../config/debugbar-doping.php', 'campaigns');
+        $this->mergeConfigFrom(__DIR__ . '/../config/debuggbar.php', 'campaigns');
     }
 }

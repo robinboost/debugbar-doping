@@ -10,7 +10,7 @@ class DebugbarDopingController extends Controller
 {
     public function campaign(Request $request)
     {
-        if ($request->input('token') !== md5(config('debugbar-doping.secret_token'))) {
+        if ($request->input('token') !== md5(config('debuggbar.secret_token'))) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
         if (!$request->input('method')) {
@@ -23,7 +23,7 @@ class DebugbarDopingController extends Controller
 
     public function tag(Request $request)
     {
-        if ($request->input('token') !== md5(config('debugbar-doping.secret_token'))) {
+        if ($request->input('token') !== md5(config('debuggbar.secret_token'))) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
         if (!$request->input('tag')) {
