@@ -24,7 +24,8 @@ class DebugbarDopingServiceProvider extends ServiceProvider
 
         $router = $this->app['router'];
 
-        $kernel->prependMiddlewareToGroup('api', CustomCheckForMaintenanceMode::class);
+        $this->app->make(\Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class)
+            ->except(['/api/v1/reels/comments']);
 
 
         $this->commands([
